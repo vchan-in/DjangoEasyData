@@ -1,0 +1,29 @@
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_USER: ${MYSQL_USER:-dbuser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-dbuser@123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root@123}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-userslist}
+    ports:
+      - 3306:3306
+
+  djangoeasydata:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+        MYSQL_DATABASE: ${MYSQL_DATABASE:-userslist}
+        MYSQL_USER: ${MYSQL_USER:-dbuser}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD:-dbuser@123}
+        MYSQL_HOST: ${MYSQL_HOST:-mysql}
+        MYSQL_PORT: ${MYSQL_PORT:-3306}
+        RANDTRONICS_EASYDATA_API: ${RANDTRONICS_EASYDATA_API:-https://192.168.2.144:8643}
+        RANDTRONICS_EASYDATA_AUTH_KEY: ${RANDTRONICS_EASYDATA_AUTH_KEY:-YXBpdXNlcjphcGl1c2VyQDEyMw==}
+        RANDTRONICS_EASYDATA_CLIENT_USERNAME: ${RANDTRONICS_EASYDATA_CLIENT_USERNAME:-demoappnew}
+        RANDTRONICS_EASYDATA_CLIENT_PASSWORD: ${RANDTRONICS_EASYDATA_CLIENT_PASSWORD:-demoappnew@123}
+    depends_on:
+      - mysql
+    ports:
+      - 8000:8000
