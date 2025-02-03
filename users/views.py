@@ -95,13 +95,9 @@ def create_view(request):
 
 
         }
-
-        print("Request headers: ", headers)
         
         response_cc = requests.request("POST", url, headers=headers, json=payload_cc, verify=False)
         response_email = requests.request("POST", url, headers=headers, json=payload_email, verify=False)
-        
-        print("Response CC: ", response_cc.text)
         
         try:
             response_cc_json = response_cc.json()
