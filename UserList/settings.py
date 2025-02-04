@@ -25,15 +25,15 @@ if load_dotenv:
     print("Environment variables loaded from .env file")
 
 # Get the environment variables from .env file if not available in os environment
-MYSQL_DATABASE = os.getenv('MYSQL_DATABASE') if os.getenv('MYSQL_DATABASE') else 'userslist'
-MYSQL_USER = os.getenv('MYSQL_USER') if os.getenv('MYSQL_USER') else 'dbuser'
-MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD') if os.getenv('MYSQL_PASSWORD') else 'dbuser@123'
-MYSQL_HOST = os.getenv('MYSQL_HOST') if os.getenv('MYSQL_HOST') else 'localhost'
-MYSQL_PORT = os.getenv('MYSQL_PORT') if os.getenv('MYSQL_PORT') else '3306'
-RANDTRONICS_EASYDATA_API = os.getenv('RANDTRONICS_EASYDATA_API') if os.getenv('RANDTRONICS_EASYDATA_API') else 'https://192.168.2.144:8643'
-RANDTRONICS_EASYDATA_AUTH_KEY = os.getenv('RANDTRONICS_EASYDATA_AUTH_KEY') if os.getenv('RANDTRONICS_EASYDATA_AUTH_KEY') else 'YXBpdXNlcjphcGl1c2VyQDEyMw=='
-RANDTRONICS_EASYDATA_CLIENT_USERNAME = os.getenv('RANDTRONICS_EASYDATA_CLIENT_USERNAME') if os.getenv('RANDTRONICS_EASYDATA_CLIENT_USERNAME') else 'demoappnew'
-RANDTRONICS_EASYDATA_CLIENT_PASSWORD = os.getenv('RANDTRONICS_EASYDATA_CLIENT_PASSWORD') if os.getenv('RANDTRONICS_EASYDATA_CLIENT_PASSWORD') else 'demoappnew@123'
+MYSQL_DATABASE = os.getenv('MYSQL_DATABASE', 'userslist')
+MYSQL_USER = os.getenv('MYSQL_USER', 'dbuser')
+MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'dbuser@123')
+MYSQL_HOST = os.getenv('MYSQL_HOST', 'localhost')
+MYSQL_PORT = os.getenv('MYSQL_PORT', '3306')
+RANDTRONICS_EASYDATA_API = os.getenv('RANDTRONICS_EASYDATA_API', 'https://192.168.2.144:8643')
+RANDTRONICS_EASYDATA_AUTH_KEY = os.getenv('RANDTRONICS_EASYDATA_AUTH_KEY', 'YXBpdXNlcjphcGl1c2VyQDEyMw==')
+RANDTRONICS_EASYDATA_CLIENT_USERNAME = os.getenv('RANDTRONICS_EASYDATA_CLIENT_USERNAME', 'demoappnew')
+RANDTRONICS_EASYDATA_CLIENT_PASSWORD = os.getenv('RANDTRONICS_EASYDATA_CLIENT_PASSWORD', 'demoappnew@123')
 
 
 # Quick-start development settings - unsuitable for production
