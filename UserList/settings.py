@@ -21,9 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Load environment variables from .env file
 load_dotenv(dotenv_path=os.path.join(BASE_DIR, '.env'))
 
-if load_dotenv:
-    print("Environment variables loaded from .env file")
-
 # Get the environment variables from .env file if not available in os environment
 MYSQL_DATABASE = os.getenv('MYSQL_DATABASE', 'userslist')
 MYSQL_USER = os.getenv('MYSQL_USER', 'dbuser')
