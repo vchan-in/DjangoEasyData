@@ -10,9 +10,7 @@ services:
       - 3306:3306
 
   djangoeasydata:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: djangoeasydata:latest
     environment:
         MYSQL_DATABASE: ${MYSQL_DATABASE:-userslist}
         MYSQL_USER: ${MYSQL_USER:-dbuser}
