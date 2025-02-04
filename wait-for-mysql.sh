@@ -3,7 +3,7 @@
 echo "Waiting for MySQL to be available..."
 
 # Set the MySQL host and port (change if needed)
-MYSQL_HOST="${MYSQL_HOST:-db}"
+MYSQL_HOST="${MYSQL_HOST:-mysql}"
 MYSQL_PORT="${MYSQL_PORT:-3306}"
 
 # Wait until MySQL is reachable
