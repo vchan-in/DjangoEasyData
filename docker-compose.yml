@@ -18,10 +18,19 @@ services:
         MYSQL_HOST: ${MYSQL_HOST:-mysql}
         MYSQL_PORT: ${MYSQL_PORT:-3306}
         RANDTRONICS_EASYDATA_API: ${RANDTRONICS_EASYDATA_API:-https://192.168.2.144:8643}
-        RANDTRONICS_EASYDATA_AUTH_KEY: ${RANDTRONICS_EASYDATA_AUTH_KEY:-YXBpdXNlcjphcGl1c2VyQDEyMw==}
         RANDTRONICS_EASYDATA_CLIENT_USERNAME: ${RANDTRONICS_EASYDATA_CLIENT_USERNAME:-demoappnew}
         RANDTRONICS_EASYDATA_CLIENT_PASSWORD: ${RANDTRONICS_EASYDATA_CLIENT_PASSWORD:-demoappnew@123}
     depends_on:
       - mysql
     ports:
       - 8000:8000
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: ${MYSQL_HOST:-mysql}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root@123}
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
